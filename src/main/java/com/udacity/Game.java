@@ -151,58 +151,40 @@ public class Game {
     public String checkGameWinner(char [][]grid){
         String result = "None";
         //Student code goes here ...
+        String sign = "";
+        int counter=0;
 
 
-
-        if (grid[0][0] =='x'&& grid[0][1] =='x' && grid[0][2] =='x'){
-            result="X Wins";
+        for (int i = 0; i<3; i++){
+            for (int j = 0; j<3; j++){
+                if (grid[i][j]=='-'){
+                    counter++;
+                }
+            }
         }
-        if (grid[1][0] =='x'&& grid[1][1] =='x' && grid[1][2] =='x'){
-            result="X Wins";
+        if (counter == 0){
+            result = "Tie";
         }
-        if (grid[2][0] =='x'&& grid[2][1] =='x' && grid[2][2] =='x'){
-            result="X Wins";
+        for (int i = 0; i<3; i++) {
+            if (grid[i][0] != '-' && grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]){
+                sign = String.valueOf(grid[i][0]);
+                result = sign.toUpperCase() + " wins";
+            }
         }
-        if (grid[0][0] =='x'&& grid[1][0] =='x' && grid[2][0] =='x'){
-            result="X Wins";
-        }
-        if (grid[0][1] =='x'&& grid[1][1] =='x' && grid[2][1] =='x'){
-            result="X Wins";
-        }
-        if (grid[0][2] =='x'&& grid[1][2] =='x' && grid[2][2] =='x'){
-            result="X Wins";
-        }
-        if (grid[0][0] =='x'&& grid[1][1] =='x' && grid[2][2] =='x'){
-            result="X Wins";
-        }
-        if (grid[0][2] =='x'&& grid[1][1] =='x' && grid[2][0] =='x'){
-            result="X Wins";
+        for (int i = 0; i<3; i++) {
+            if (grid[0][i] != '-' && grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i]){
+                sign = String.valueOf(grid[0][i]);
+                result = sign.toUpperCase() + " wins";
+            }
         }
 
-
-        if (grid[0][0] =='o'&& grid[0][1] =='o' && grid[0][2] =='o'){
-            result="O Wins";
+        if (grid [0][0] !='-' && grid[0][0] ==grid[1][1] && grid[1][1] ==grid[2][2]  ){
+            sign = String.valueOf(grid[0][0]);
+            result =sign.toUpperCase() +" wins";
         }
-        if (grid[1][0] =='o'&& grid[1][1] =='o' && grid[1][2] =='o'){
-            result="O Wins";
-        }
-        if (grid[2][0] =='o'&& grid[2][1] =='o' && grid[2][2] =='o'){
-            result="O Wins";
-        }
-        if (grid[0][0] =='o'&& grid[1][0] =='o' && grid[2][0] =='o'){
-            result="O Wins";
-        }
-        if (grid[0][1] =='o'&& grid[1][1] =='o' && grid[2][1] =='o'){
-            result="O Wins";
-        }
-        if (grid[0][2] =='o'&& grid[1][2] =='o' && grid[2][2] =='o'){
-            result="O Wins";
-        }
-        if (grid[0][0] =='o'&& grid[1][1] =='o' && grid[2][2] =='o'){
-            result="O Wins";
-        }
-        if (grid[0][2] =='o'&& grid[1][1] =='o' && grid[2][0] =='o'){
-            result="O Wins";
+        if (grid [0][2] !='-' && grid[0][2] == grid[1][1] && grid[1][1] ==grid[2][0] ){
+            sign = String.valueOf(grid[0][2]);
+            result =sign.toUpperCase() +" wins";
         }
 
 
